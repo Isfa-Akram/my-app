@@ -17,18 +17,29 @@ const Maps = ()=> {
        provider={PROVIDER_GOOGLE} // remove if not using Google Maps
        style={{ width: 450, height: 350 }}
        mapType= "mutedStandard"
-       region={{
-       
-        // latitude: origin.location.latitude,
-        // longitude: origin.location.longitude,
 
-         latitude: 37.78825,
-         longitude: -122.4324,
-         latitudeDelta: 0.015,
-         longitudeDelta: 0.0121,
-       }}
-     >
-     </MapView>
+       initialRegion={pickUp}>
+
+        <Marker coordinate={pickUp}/>
+        <Marker coordinate={dropDown}/>
+         <MapViewDirections
+          origin={pickUp}
+          destination={dropDown}
+          apikey={"AIzaSyDtT2Wl3LOuxKkLwbqbkP9tQScwyH_RShg"}
+          strokeWidth={5}
+          strokeColor="hotpink"/>
+        </MapView>
+      //  region={{
+       
+      //   // latitude: origin.location.latitude,
+      //   // longitude: origin.location.longitude,
+
+      //    latitude: 37.78825,
+      //    longitude: -122.4324,
+      //    latitudeDelta: 0.015,
+      //    longitudeDelta: 0.0121,
+      //  }}
+     
 
     // {origin?.location && (
     //   <Marker
