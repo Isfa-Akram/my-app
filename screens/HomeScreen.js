@@ -25,15 +25,13 @@ const HomeScreen = ()=>{
 
         onPress={(data, details = null) => {
 
-<<<<<<< HEAD
           console.log(data);
           console.log(details);
           
-=======
->>>>>>> 7565e72d14c103c3d50ec44561331521530a0a8b
            dispatch(setOrigin({
             location: details.geometry.location,
             description: data.description,
+            
            }));
 
         }}
@@ -59,8 +57,6 @@ const HomeScreen = ()=>{
             location: details.geometry.location,
             description: data.description,
            }));
-
-           
             
         }}
 

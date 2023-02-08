@@ -11,7 +11,7 @@ const initialState = {
 //prepration of data layer
  export const navSlice = createSlice({
     //name of our slice
-    name: 'navigation',
+    name: 'navigator',
 
     //initial state of slice navigation  
     initialState,
@@ -42,9 +42,9 @@ const initialState = {
 //By using selectors we can get data from data layer
 //you have 1 selector for each piece of information in initial state
 
- export const selectOrigin = (state) => state.navigation.origin;
- export const selectDestination = (state) => state.navigation.destination;
- export const selectTravelTimeInformation = (state) => state.navigation.travelTimeInformation;
+ export const selectOrigin = (state) => state.navigator.origin;
+ export const selectDestination = (state) => state.navigator.destination;
+ export const selectTravelTimeInformation = (state) => state.navigator.travelTimeInformation;
 
 
 //string that conects us to the store is the reducer 

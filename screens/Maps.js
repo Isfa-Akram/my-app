@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState  } from 'react';
 import { Text, View } from 'react-native';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import { useSelector } from 'react-redux';
@@ -7,12 +7,30 @@ import { selectOrigin, selectDestination } from '../slices/navSlice';
 const Maps = ()=> {
 
  const origin = useSelector((state)=>{
-  state.selectOrigin;
+    state.selectOrigin;
+
  });
 
  const destination = useSelector((state)=>{
-  state.selectDestination;
+    state.selectDestination;
  });
+
+ const [state, setState] = useState({
+  pickUp: {
+    latitude: origin.location.lat,
+    longitude: origin.location.lng,
+    latitudeDelta: 0.0922,
+    longitudeDelta: 0.0421,
+  },
+  dropDown: {
+    latitude: destination.location.lat,
+    longitude: destination.location.lng,
+    latitudeDelta: 0.0922,
+    longitudeDelta: 0.0421,
+  }
+})
+
+const { pickUp, dropDown } = state;
 
   
     return (
@@ -21,13 +39,6 @@ const Maps = ()=> {
        provider={PROVIDER_GOOGLE} // remove if not using Google Maps
        style={{ width: 450, height: 350 }}
        mapType= "mutedStandard"
-<<<<<<< HEAD
-=======
-       region={{
-       
-        latitude: origin.location.latitude,
-        // longitude: origin.location.longitude,
->>>>>>> 7565e72d14c103c3d50ec44561331521530a0a8b
 
        initialRegion={pickUp}>
 
