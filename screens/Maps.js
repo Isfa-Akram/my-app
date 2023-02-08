@@ -10,6 +10,10 @@ const Maps = ()=> {
   state.selectOrigin;
  });
 
+ const destination = useSelector((state)=>{
+  state.selectDestination;
+ });
+
   
     return (
       
@@ -19,7 +23,7 @@ const Maps = ()=> {
        mapType= "mutedStandard"
        region={{
        
-        // latitude: origin.location.latitude,
+        latitude: origin.location.latitude,
         // longitude: origin.location.longitude,
 
          latitude: 37.78825,

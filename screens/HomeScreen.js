@@ -25,21 +25,14 @@ const HomeScreen = ()=>{
 
         onPress={(data, details = null) => {
 
-          console.log(data);
-          
            dispatch(setOrigin({
             location: details.geometry.location,
             description: data.description,
            }));
 
-           dispatch(setDestination(null));
-            
         }}
 
-       
-       
-
-        fetchDetails={true}
+       fetchDetails={true}
         returnKeyType={"search"}
         query={{
         key: 'AIzaSyDtT2Wl3LOuxKkLwbqbkP9tQScwyH_RShg',
@@ -50,10 +43,29 @@ const HomeScreen = ()=>{
 <GooglePlacesAutocomplete 
         nearbyPlacesAPI='GooglePlacesSearch'
         placeholder='Enter Drop Location'
+
+        debounce={400}
+        enablePoweredByContainer={false}
+
+        onPress={(data, details = null) => {
+
+           dispatch(setDestination({
+            location: details.geometry.location,
+            description: data.description,
+           }));
+
+           
+            
+        }}
+
+        fetchDetails={true}
+        returnKeyType={"search"}
         query={{
         key: 'AIzaSyDtT2Wl3LOuxKkLwbqbkP9tQScwyH_RShg',
         language: 'en',
-      }}
+        }}
+
+        
     />
 
 
