@@ -10,6 +10,10 @@ const Maps = ()=> {
   state.selectOrigin;
  });
 
+ const destination = useSelector((state)=>{
+  state.selectDestination;
+ });
+
   
     return (
       
@@ -17,6 +21,13 @@ const Maps = ()=> {
        provider={PROVIDER_GOOGLE} // remove if not using Google Maps
        style={{ width: 450, height: 350 }}
        mapType= "mutedStandard"
+<<<<<<< HEAD
+=======
+       region={{
+       
+        latitude: origin.location.latitude,
+        // longitude: origin.location.longitude,
+>>>>>>> 7565e72d14c103c3d50ec44561331521530a0a8b
 
        initialRegion={pickUp}>
 

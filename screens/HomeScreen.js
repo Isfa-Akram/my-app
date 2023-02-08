@@ -25,22 +25,20 @@ const HomeScreen = ()=>{
 
         onPress={(data, details = null) => {
 
+<<<<<<< HEAD
           console.log(data);
           console.log(details);
           
+=======
+>>>>>>> 7565e72d14c103c3d50ec44561331521530a0a8b
            dispatch(setOrigin({
             location: details.geometry.location,
             description: data.description,
            }));
 
-           dispatch(setDestination(null));
-            
         }}
 
-       
-       
-
-        fetchDetails={true}
+       fetchDetails={true}
         returnKeyType={"search"}
         query={{
         key: 'AIzaSyDtT2Wl3LOuxKkLwbqbkP9tQScwyH_RShg',
@@ -51,10 +49,29 @@ const HomeScreen = ()=>{
 <GooglePlacesAutocomplete 
         nearbyPlacesAPI='GooglePlacesSearch'
         placeholder='Enter Drop Location'
+
+        debounce={400}
+        enablePoweredByContainer={false}
+
+        onPress={(data, details = null) => {
+
+           dispatch(setDestination({
+            location: details.geometry.location,
+            description: data.description,
+           }));
+
+           
+            
+        }}
+
+        fetchDetails={true}
+        returnKeyType={"search"}
         query={{
         key: 'AIzaSyDtT2Wl3LOuxKkLwbqbkP9tQScwyH_RShg',
         language: 'en',
-      }}
+        }}
+
+        
     />
 
 
